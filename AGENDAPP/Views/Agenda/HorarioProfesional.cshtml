@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewBag.Title = "HorarioProfesional";
+}
+
+<div class="col-lg-12 col-xl-12 order-lg-12 order-xl-12">
+    <div class="card mb-3">
+        <div class="card-header text-center">
+            <label class="kt-portlet__head-title">Horario</label>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label>Profesional</label>
+                        <select class="form-control" id="Profesional">
+                            <option value="0">--Seleccione--</option>
+                            <option value="1">Diego</option>
+                            <option value="2">Luciano</option>
+                            <option value="3">Bastian</option>
+                            <option value="4">Matias</option>
+                            <option value="5">Joshef</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label>Servicio</label>
+                        <select type="email" class="form-control">
+                            <option value="0">--Seleccione--</option>
+                            <option value="1">Broncopulmonar</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header text-center">
+
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead id="tabla_dias_head">
+                    <tr>
+                        <th>
+                            Lunes <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="1">&nbsp;<span></span></label></span>
+
+                        </th>
+                        <th>
+                            Martes <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="2">&nbsp;<span></span></label></span>
+
+                        </th>
+                        <th>
+                            Miercoles <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="3">&nbsp;<span></span></label></span>
+
+                        </th>
+                        <th>
+                            Jueves <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="4">&nbsp;<span></span></label></span>
+
+                        </th>
+                        <th>
+                            Viernes <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="5">&nbsp;<span></span></label></span>
+
+                        </th>
+                        <th>
+                            Sabado <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="6">&nbsp;<span></span></label></span>
+
+                        </th>
+                        <th>
+                            Domingo <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="7">&nbsp;<span></span></label></span>
+
+                        </th>
+                    </tr>                </thead>
+
+            </table>
+
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label>Hora inicio</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" id="HoraInicio" class="form-control floating-label" placeholder="Hora">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Hora termino</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" id="HoraTermino" class="form-control floating-label" placeholder="Hora">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Fecha desde</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" id="FechaDesde" class="form-control floating-label" placeholder="Hora">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Fecha hasta</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" id="FechaHasta" class="form-control floating-label" placeholder="Hora">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Duración de cita(Minutos)</label>
+                    <div class="form-control-wrapper">
+                        <input type="number" min="15" max="120" id="Duracion" class="form-control floating-label" placeholder="Hora">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Espacio entre cita(Minutos)</label>
+                    <div class="form-control-wrapper">
+                        <input type="number" min="5" max="120" id="Espacio" class="form-control floating-label" placeholder="Hora">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Jornada</label>
+                    <div class="input-group mb-3">
+                        <select class="form-control" id="Jornada">
+                            <option value="0">--Seleccione--</option>
+                            <option value="1">Mañana</option>
+                            <option value="2">Tarde</option>
+                            <option value="3">Especial</option>
+                        </select>
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-info" id="Agregar_Jornada" style="cursor:pointer" data-toggle="popover" data-container="body" data-trigger="hover" data-placement="right" data-content="Agregar Jornada"><i class="fas fa-plus text-white"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6" style="padding-top:13px;">
+                    <label>¿Profesional habilitado para agendamiento via web?</label>
+                    <div class="form-control-wrapper">
+                        Si <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="radio" name="ViaWeb"  id="WebSi" checked>&nbsp;<span></span></label></span>
+                        No <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="radio" name="ViaWeb"  id="WebNo">&nbsp;<span></span></label></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-footer text-right">
+            <div class="form-group">
+                <button class="btn btn-sm btn-info" id="Agregar_Disponibilidad_Profesional"><i class="fas fa-save"></i>Agregar</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="Modal_Agregar_Jornada" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-plus text-info"></i> Añadiendo nueva jornada</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-info" id="Quitar_Horario">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="module" src="~/ActionJs/Agenda/Disponibilidad_Profesional.js"></script>
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d35a3961aa8b4e70a8d19e68fb124217" Name="Diagram1">
+        <EntityTypeShape EntityType="MPSModel.MPS_AJUSTE_DISPONIBILIDAD" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_COMUNA" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_CONTRATO" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_CONTRATO_ORGANIZACION" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_CONVENIO" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_DETALLE_DIAS_ATENCION" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_DETALLE_HORARIO_PROFESIONAL" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_DIAS_SEMANA" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_FICHA" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_HORARIO_PROFESIONAL" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_MODO_LLEGADA" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_ORGANIZACION" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_PRESTACION_PREVISION" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_PRESTACION_PROFESIONALES" Width="1.5" PointX="8.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_REGION" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MPSModel.MPS_TIPO_ORGANIZACION" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="MPSModel.MSP_PRESTACION" Width="1.5" PointX="10.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

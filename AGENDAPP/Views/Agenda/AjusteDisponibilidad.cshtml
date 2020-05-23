@@ -1,0 +1,282 @@
+﻿
+@{
+    ViewBag.Title = "AjusteDisponibilidad";
+}
+<style>
+    #Edit_day {
+        letter-spacing: 3px;
+    }
+</style>
+<div class="card mb-3">
+    <div class="card-header text-center">
+        <label class="kt-portlet__head-title">Horario</label>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead id="Thead_Days">
+                <tr>
+                    <th>
+                        Lunes <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="1">&nbsp;<span></span></label></span>
+
+                    </th>
+                    <th>
+                        Martes <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="2">&nbsp;<span></span></label></span>
+
+                    </th>
+                    <th>
+                        Miercoles <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="3">&nbsp;<span></span></label></span>
+
+                    </th>
+                    <th>
+                        Jueves <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="4">&nbsp;<span></span></label></span>
+
+                    </th>
+                    <th>
+                        Viernes <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="5">&nbsp;<span></span></label></span>
+
+                    </th>
+                    <th>
+                        Sabado <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="6">&nbsp;<span></span></label></span>
+
+                    </th>
+                    <th>
+                        Domingo <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" value="7">&nbsp;<span></span></label></span>
+
+                    </th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-xl-4">
+        <div class="card mb-3">
+            <div class="card-header">
+                <label class="kt-portlet__head-title">
+                    Rangos de horario
+                </label>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="">
+                            <label>Hora inicio</label>
+                            <div class="form-control-wrapper">
+                                <input type="text" id="txt_time_from" class="form-control floating-label time-picker" placeholder="Hora">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="">
+                            <label>Hora termino</label>
+                            <div class="form-control-wrapper">
+                                <input type="text" id="txt_hour_until" class="form-control floating-label time-picker" placeholder="Hora">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <div class="kt-portlet__foot text-right">
+                    <button class="btn btn-info" id="Save_adjustment"><i class="fas fa-save"></i> Añadir</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-6 col-xl-4 ">
+        <div class="card mb-3">
+            <div class="card-header">
+                <label class="kt-portlet__head-title">
+                    Horarios de tu organización
+                </label>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Día
+                            </th>
+                            <th>
+                                Hora Desde
+                            </th>
+                            <th>
+                                Hora Hasta
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="TbodyAjusteDisponibilidad">
+                        <tr class="text-center">
+                            <td colspan="3">Sin horario registrado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="modal fade" id="Days_not_added_Modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-exclamation-triangle" style="color:#ffb100"></i> Alerta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <p>
+                    A continuación se muestran los días que no pudieron ser ingresados, ya que, se encuentran registrados.
+                </p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Día
+                            </th>
+                            <th>
+                                Hora Desde
+                            </th>
+                            <th>
+                                Hora Hasta
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="TbodyAjusteDisponibilidadNoAgregados"></tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <p>
+                    Para poder ajustar la disponibilidad a un dia ya registrado,
+                    prueba haciendo click en el boton editar del listado que se encuentra en la tarjeta "Horarios de tu organización"
+                    dentro de la pantalla actual en la que estas.
+                </p>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Edit_availability_adjustment_Modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-edit" style="color:#1cbacc"></i> Editando horario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h4 id="Edit_day"></h4>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="">
+                            <label>Hora inicio</label>
+                            <div class="form-control-wrapper">
+                                <input type="text" id="txt_edit_time_from" class="form-control floating-label time-picker" placeholder="Hora">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="">
+                            <label>Hora termino</label>
+                            <div class="form-control-wrapper">
+                                <input type="text" id="txt_edit_hour_until" class="form-control floating-label time-picker" placeholder="Hora">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top:20px;padding-top:10px;border-top:1px solid #eee">
+
+                        <div class="col-md-10" style="float:left">
+                            <label>¿Desea bloquear los registros que no esten dentro del nuevo rango para el dia seleccionado?</label>
+                        </div>
+                        <div class="col-md-2" style="float:left">
+                            <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" id="Lock_records">&nbsp;<span></span></label></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-info" id="Guardar_Horario_Editado">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Delete_availability_adjustment_Modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-trash text-danger" ></i> Quitando horario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <td>Día</td>
+                                    <td>Hora de inicio</td>
+                                    <td>Hora de termino</td>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody_quitar_dia"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top:20px;padding-top:10px;border-top:1px solid #eee">
+
+                        <div class="col-md-10" style="float:left">
+                            <label>¿Desea bloquear los registros que no esten dentro de su nuevo ajuste de disponibilidad?</label>
+                        </div>
+                        <div class="col-md-2" style="float:left">
+                            <span style="width: 40px;"><label class="kt-checkbox kt-checkbox--single kt-checkbox--all kt-checkbox--solid"><input type="checkbox" id="Delete_lock_records">&nbsp;<span></span></label></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>
+                    ¿Estas seguro de quitar el día seleccionado de tu ajuste de disponibilidad? Esta acción no sera reversible.
+                </p>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Cerrar</button>
+                <button type="button" class="btn btn-info" id="Quitar_Horario">Si, Quitar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script type="module" src="~/ActionJs/Agenda/Ajuste_Disponibilidad.js"></script>
+}
